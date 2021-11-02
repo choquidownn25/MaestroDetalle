@@ -1,0 +1,107 @@
+﻿@model Prueba.Models.ApplicationUser
+@inject Prueba.Data.ApplicationDbContext Context
+
+@{
+    UserProfile profile = Context.UserProfile.SingleOrDefault(x => x.ApplicationUserId.Equals(Model.Id));
+}
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="@profile.ProfilePicture" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+                <p>@profile.FirstName @profile.LastName</p>
+                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+        </div>
+
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu" data-widget="tree">
+            <li class="header">Configuración</li>
+            <li class="@Html.IsSelected(controller: MainMenu.Brands.ControllerName, action: MainMenu.Brands.ActionName)">
+                <a href="@MainMenu.Brands.Path">
+                    <i class="fa fa-users"></i> <span>@MainMenu.Brands.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.Categories.ControllerName, action: MainMenu.Categories.ActionName)">
+                <a href="@MainMenu.Categories.Path">
+                    <i class="fa fa-users"></i> <span>@MainMenu.Categories.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.Customers.ControllerName, action: MainMenu.Customers.ActionName)">
+                <a href="@MainMenu.Customers.Path">
+                    <i class="fa fa-users"></i> <span>@MainMenu.Customers.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.Products.ControllerName, action: MainMenu.Products.ActionName)">
+                <a href="@MainMenu.Products.Path">
+                    <i class="fa fa-users"></i> <span>@MainMenu.Products.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.Stores.ControllerName, action: MainMenu.Stores.ActionName)">
+                <a href="@MainMenu.Stores.Path">
+                    <i class="fa fa-users"></i> <span>@MainMenu.Stores.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.Staffs.ControllerName, action: MainMenu.Staffs.ActionName)">
+                <a href="@MainMenu.Staffs.Path">
+                    <i class="fa fa-users"></i> <span>@MainMenu.Staffs.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.Stocks.ControllerName, action: MainMenu.Stocks.ActionName)">
+                <a href="@MainMenu.Stocks.Path">
+                    <i class="fa fa-users"></i> <span>@MainMenu.Stocks.PageName</span>
+                </a>
+            </li>
+            <li class="header">Ordenes de Compra</li>
+            <li class="@Html.IsSelected(controller: MainMenu.Orders.ControllerName, action: MainMenu.Orders.ActionName)">
+                <a href="@MainMenu.Orders.Path">
+                    <i class="fa fa-users"></i> <span>@MainMenu.Orders.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.OrderItems.ControllerName, action: MainMenu.OrderItems.ActionName)">
+                <a href="@MainMenu.OrderItems.Path">
+                    <i class="fa fa-users"></i> <span>@MainMenu.OrderItems.PageName</span>
+                </a>
+            </li>
+            <li class="header">Utilidades</li>
+            <li class="@Html.IsSelected(controller: MainMenu.Triki.ControllerName, action: MainMenu.Triki.ActionName)">
+                <a href="@MainMenu.Triki.Path">
+                    <i class="fa fa-users"></i> <span>@MainMenu.Triki.PageName</span>
+                </a>
+            </li>
+
+            <li class="@Html.IsSelected(controller: MainMenu.Prueba.ControllerName, action: MainMenu.Prueba.ActionName)">
+                <a href="@MainMenu.Prueba.Path">
+                    <i class="fa fa-users"></i> <span>@MainMenu.Prueba.PageName</span>
+                </a>
+            </li>
+
+            <li class="header">USUARIO & ROLES</li>
+            <li class="@Html.IsSelected(controller: MainMenu.User.ControllerName, action: MainMenu.User.ActionName)">
+                <a href="@MainMenu.User.Path">
+                    <i class="fa fa-users"></i> <span>@MainMenu.User.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.ChangePassword.ControllerName, action: MainMenu.ChangePassword.ActionName)">
+                <a href="@MainMenu.ChangePassword.Path">
+                    <i class="fa fa-key"></i> <span>@MainMenu.ChangePassword.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.Role.ControllerName, action: MainMenu.Role.ActionName)">
+                <a href="@MainMenu.Role.Path">
+                    <i class="fa fa-gear"></i> <span>@MainMenu.Role.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.ChangeRole.ControllerName, action: MainMenu.ChangeRole.ActionName)">
+                <a href="@MainMenu.ChangeRole.Path">
+                    <i class="fa fa-gear"></i> <span>@MainMenu.ChangeRole.PageName</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>
